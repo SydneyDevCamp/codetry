@@ -6,6 +6,12 @@
 		<h4><%= @user.location if @user.location? %></h4>
 		<p><%= @user.about if @user.about? %></p>
 
+<<<<<<< HEAD
+<%= link_to "User's poems", user_poems_path(@user), :class => 'btn' %>
+<% if current_user.has_role? :admin %>
+<%= link_to "BanUnban Button",  banunban_user_path(@user) ,:method => :put %>
+<%end %>
+=======
 		<p><%= link_to "Facebook", @user.facebook, :target => '_blank' if @user.facebook? %></p>
 		<p><%= link_to "Twitter", @user.twitter, :target => '_blank' if @user.twitter? %></p>
 		<p><%= link_to "Website", @user.website, :target => '_blank' if @user.website? %></p>
@@ -29,3 +35,4 @@
 		</div>
 	</div>
 </div>
+>>>>>>> upstream/master
