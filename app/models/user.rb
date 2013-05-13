@@ -6,11 +6,20 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable 
 
+#<<<<<<< HEAD
   devise :omniauthable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :role_ids, :as => :admin
+  #attr_accessible :role_ids, :as => :admin
 
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban
+  #attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban
+#=======
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :role_ids, :as => :admin
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban, :slug
+#>>>>>>> upstream/master
 
 
   # Carrierwave avatar uploading

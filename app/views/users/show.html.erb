@@ -23,11 +23,12 @@
 		<div class="poem">
 			<% unless @user.poems.blank? %>
 			  <% @user.poems.each do |poem| %>
-			    <h1><%= link_to poem.title, poem %></h1>
+			    <h1><%= link_to poem.title, user_poem_path(@user, poem) %></h1>
 			    <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, "#" %>
 			    <% if user_signed_in? %>
 			      <% if current_user == @user %>
 			        &nbsp;<%= link_to 'Edit', edit_user_poem_path(@user, poem), :class => 'btn btn-mini' %>
+			        &nbsp;<%= link_to 'Delete', user_poem_path(poem.user, poem), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini'  %>
 			      <% end %>
 			    <% end %></p>
 			    <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
