@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.13'
-gem 'sqlite3'
+gem 'sqlite3', :group => [:development, :test]
+gem 'pg', :group => :production
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -34,3 +35,5 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'acts-as-taggable-on'
 gem 'turbolinks'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
